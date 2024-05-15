@@ -1,11 +1,10 @@
-import React, {FC, lazy, Suspense, useContext, useState} from 'react';
+import React, {FC, lazy, Suspense} from 'react';
 import {Link, Route, Routes} from "react-router-dom";
 
 const MainPage = lazy(() => import("./pages/MainPage/MainPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage/AboutPage"));
 
 import './styles/index.scss';
-import {Theme, ThemeContext} from "./theme/ThemeContext";
 import {useTheme} from "./theme/useTheme";
 
 export const App: FC = () => {
