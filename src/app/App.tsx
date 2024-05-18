@@ -1,17 +1,18 @@
 import React, {FC, lazy, Suspense} from 'react';
 import {Link, Route, Routes} from "react-router-dom";
 
-const MainPage = lazy(() => import("./pages/MainPage/MainPage"));
-const AboutPage = lazy(() => import("./pages/AboutPage/AboutPage"));
+const MainPage = lazy(() => import("pages/MainPage"));
+const AboutPage = lazy(() => import("pages/AboutPage"));
 
 import './styles/index.scss';
-import {useTheme} from "./theme/useTheme";
+import {useTheme} from "app/providers/ThemeProvider";
+import {classNames} from "shared/lib/classNames";
 
 export const App: FC = () => {
   const {theme, toggleTheme} = useTheme();
 
   return (
-    <div className={`app ${theme}`}>
+    <div className={classNames('app', [theme])}>
       <button onClick={toggleTheme}>Toggle Theme</button>
       <Link to="/">Home</Link>
       <Link to="/about">About</Link>
