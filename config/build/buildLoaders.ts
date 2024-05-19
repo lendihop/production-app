@@ -1,31 +1,30 @@
-import {RuleSetRule} from "webpack";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import {BuildOptions} from "./types/config";
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { RuleSetRule } from 'webpack';
 
-export const buildLoaders = ({isDev}: BuildOptions): RuleSetRule[] => {
+import { BuildOptions } from './types/config';
+
+export const buildLoaders = ({ isDev }: BuildOptions): RuleSetRule[] => {
   const fileLoader = {
     test: /\.(png|jpe?g|gif|woff2|woff)$/i,
     use: [
       {
-        loader: 'file-loader',
-      },
-    ],
+        loader: 'file-loader'
+      }
+    ]
   };
 
   const svgLoader = {
     test: /\.svg$/,
-    use: ['@svgr/webpack'],
+    use: ['@svgr/webpack']
   };
 
   const babelLoader = {
     test: /\.([jt]sx?)$/,
     exclude: /node_modules/,
     use: {
-      loader: "babel-loader",
+      loader: 'babel-loader',
       options: {
-        plugins: [
-          isDev && "react-refresh/babel",
-        ].filter(Boolean),
+        plugins: [isDev && 'react-refresh/babel'].filter(Boolean),
         presets: ['@babel/preset-env']
       }
     }
@@ -34,7 +33,7 @@ export const buildLoaders = ({isDev}: BuildOptions): RuleSetRule[] => {
   const typescriptLoader = {
     test: /\.tsx?$/,
     use: 'ts-loader',
-    exclude: /node_modules/,
+    exclude: /node_modules/
   };
 
   const sassLoader = {
@@ -42,25 +41,17 @@ export const buildLoaders = ({isDev}: BuildOptions): RuleSetRule[] => {
     use: [
       isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
       {
-        loader: "css-loader",
+        loader: 'css-loader',
         options: {
           modules: {
             auto: new RegExp('\\.module\\.'),
-            localIdentName: isDev
-              ? '[path][name]__[local]--[hash:base64:5]'
-              : '[hash:base64:8]'
-          },
+            localIdentName: isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:8]'
+          }
         }
       },
-      "sass-loader",
-    ],
+      'sass-loader'
+    ]
   };
 
-  return [
-    fileLoader,
-    svgLoader,
-    babelLoader,
-    typescriptLoader,
-    sassLoader,
-  ]
+  return [fileLoader, svgLoader, babelLoader, typescriptLoader, sassLoader];
 };
