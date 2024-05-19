@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import DarkThemeIcon from 'shared/assets/icons/theme-dark.svg';

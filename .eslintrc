@@ -108,6 +108,7 @@
     ],
     "react/jsx-key": "warn",
     "react/no-unescaped-entities": "off",
+    "react/react-in-jsx-scope": "off",
 
     "jsx-a11y/no-autofocus": "off",
     "jsx-a11y/click-events-have-key-events": "off",
