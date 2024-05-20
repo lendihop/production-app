@@ -3,5 +3,7 @@
   "toggle": "toggle",
   "home": "Home",
   "about": "About",
-  "page not found": "Page not found"
+  "page not found": "Page not found",
+  "something went wrong": "Oops, something went wrong :(",
+  "reload page": "Reload page"
 }
