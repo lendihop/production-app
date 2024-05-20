@@ -9,10 +9,11 @@
     "plugin:react-hooks/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
-    "plugin:import/typescript"
+    "plugin:import/typescript",
+    "plugin:i18next/recommended"
   ],
 
-  "plugins": ["import", "prettier", "@typescript-eslint", "no-type-assertion", "react", "react-hooks", "jsx-a11y"],
+  "plugins": ["import", "prettier", "@typescript-eslint", "no-type-assertion", "react", "react-hooks", "jsx-a11y", "i18next"],
 
   "ignorePatterns": "src/**/*.embed.js",
 
